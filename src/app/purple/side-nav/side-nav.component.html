@@ -1,0 +1,35 @@
+<mat-sidenav-container class="app-container" autosize>
+  <mat-sidenav
+    #sidenav
+    opened
+    class="sidenav"
+    mode="side"
+    [class.expanded]="isExpanded === true"
+  >
+    <mat-list class="listOfRedirect">
+      <mat-list-item class="listItem" (click)="redirectHome()"
+        ><mat-icon>home</mat-icon> Home</mat-list-item
+      >
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem" (click)="redirectOrderRelations()"
+        ><mat-icon>search</mat-icon> Order Relations</mat-list-item
+      >
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem" (click)="redirectTracesFrequency()"
+        ><mat-icon>equalizer</mat-icon> Traces Frequency</mat-list-item
+      >
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem" (click)="redirectTracesFrequency()"
+        ><mat-icon>balance</mat-icon> Fixed Alignment Cost</mat-list-item
+      >
+      <mat-divider></mat-divider>
+      <mat-list-item class="listItem" (click)="redirectCustomNoise()"
+        ><mat-icon>graphic_eq</mat-icon> Custom Noise</mat-list-item
+      >
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

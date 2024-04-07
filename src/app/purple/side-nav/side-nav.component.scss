@@ -1,0 +1,37 @@
+@import "../../../global-styles/global-style-variables.scss";
+
+.app-container {
+  height: calc(100% - var($toolbarHeight));
+  margin: 0;
+}
+
+.sidenav {
+  background-color: #74125e !important;
+  height: 100%;
+  width: $sideBarWidth;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.4s linear;
+  border: 0;
+  padding: 18px 8px;
+}
+
+.expanded {
+  width: $sideBarWidthExpanded !important;
+}
+
+.listItem {
+  cursor: pointer !important;
+}
+
+.mdc-list-item__primary-text {
+  font-size: 0.9rem !important;
+  color: white !important;
+  display: flex;
+}
+
+mat-icon{
+    font-size: 1.4rem !important;
+    margin-right: 0.5rem;
+}

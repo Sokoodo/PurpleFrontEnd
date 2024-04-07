@@ -1,0 +1,18 @@
+@import "../../../global-styles/global-style-variables.scss";
+
+.purplePageContainer {
+  height: calc(100% - var($toolbarHeight));
+  display: flex;
+  justify-content: center;
+}
+
+.welcomeDiv {
+  padding-top: 5rem;
+  width: 45vw;
+}
+
+.welcomeTitle {
+  font-weight: bold !important;
+  font-size: xx-large !important;
+  padding-bottom: 1.3rem !important;
+}

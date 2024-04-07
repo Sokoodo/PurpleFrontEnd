@@ -1,0 +1,22 @@
+@import "../../../global-styles/global-style-variables.scss";
+
+.toolbar {
+  background-color: #54104a;
+  color: white;
+  height: var($toolbarHeight);
+}
+
+.homePurple {
+  padding-left: 1.2rem;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.versionText {
+  font-size: medium;
+  padding-right: 0.5rem;
+}
