@@ -1,0 +1,59 @@
+<div class="orderRelationContainer">
+  <div class="titleContainer">
+    <mat-icon>input</mat-icon>
+    <h1>Inputs</h1>
+  </div>
+  <div
+    class="uploaderContainer"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <!-- File Uploader -->
+
+    <mat-card class="uploaderCard">
+      <mat-card-content class="uploadButtonContainer">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="fileInput.click()"
+          class="buttonUploader"
+        >
+          Choose File:
+        </button>
+        <input
+          hidden
+          (change)="onFileSelected($event)"
+          #fileInput
+          accept=".bpmn,.pnml,.xml"
+          type="file"
+        />
+        <span *ngIf="singleFile !== null" class="file-name">{{
+          singleFile.name
+        }}</span>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Slider -->
+    <mat-card class="sliderCard">
+      <mat-card-content>
+        <h3><b>Percentage of completeness:</b></h3>
+        <mat-slider
+          min="0"
+          max="100"
+          showTickMarks
+          discrete
+          [color]="'primary'"
+          [(ngModel)]="sliderValue"
+          [displayWith]="formatLabel"
+          class="slider"
+        >
+          <input matSliderThumb />
+        </mat-slider>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="titleContainer">
+    <mat-icon>task</mat-icon>
+    <h1>Actions</h1>
+  </div>
+</div>

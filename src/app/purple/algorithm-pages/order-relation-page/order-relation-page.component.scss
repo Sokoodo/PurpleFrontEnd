@@ -1,0 +1,65 @@
+@import "../../../../global-styles/global-style-variables.scss";
+
+.orderRelationContainer {
+  height: calc(100% - var($toolbarHeight));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.titleContainer {
+  width: 70vh;
+  display: flex;
+  justify-content: center;
+}
+.uploaderContainer {
+  padding: 3rem;
+  width: 70vh;
+  display: flex;
+  justify-content: center;
+}
+.uploadButtonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.uploaderCard {
+  width: 50%;
+  height: 9rem;
+}
+.uploaderCard,
+.sliderCard {
+  width: 45%; /* Adjust width as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.sliderCard {
+  width: 50%;
+  height: 9rem;
+}
+
+.slider {
+  width: 90%;
+}
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  &:hover {
+    background: #555;
+  }
+}

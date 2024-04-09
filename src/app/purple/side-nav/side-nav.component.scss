@@ -6,7 +6,7 @@
 }
 
 .sidenav {
-  background-color: #74125e !important;
+  background-color: #884279 !important;
   height: 100%;
   width: $sideBarWidth;
   -webkit-transition: all 0.5s linear;
@@ -14,7 +14,7 @@
   -o-transition: all 0.5s linear;
   transition: all 0.4s linear;
   border: 0;
-  padding: 18px 8px;
+  padding: 23px 8px;
 }
 
 .expanded {
@@ -31,7 +31,7 @@
   display: flex;
 }
 
-mat-icon{
-    font-size: 1.4rem !important;
-    margin-right: 0.5rem;
+mat-icon {
+  font-size: 1.4rem !important;
+  margin-right: 0.5rem;
 }

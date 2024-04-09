@@ -1,9 +1,24 @@
 @import "../../../global-styles/global-style-variables.scss";
 
 .toolbar {
-  background-color: #54104a;
+  background-color: #8a2a75;
   color: white;
   height: var($toolbarHeight);
+}
+
+.purpleLogoContainer {
+  height: var($toolbarHeight);
+  width: $sideBarWidthExpanded !important;
+  background-color: #884279 !important;
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.mat-toolbar-single-row {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0px 16px 0 0;
 }
 
 .homePurple {

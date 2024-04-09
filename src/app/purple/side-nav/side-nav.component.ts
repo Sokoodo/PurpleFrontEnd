@@ -25,14 +25,20 @@ export class SideNavComponent {
   redirectHome() {
     this._router.navigateByUrl("home");
   }
-  
-  redirectCustomNoise() {
-  throw new Error('Method not implemented.');
-  }
-  redirectTracesFrequency() {
-  throw new Error('Method not implemented.');
-  }
+
   redirectOrderRelations() {
-  throw new Error('Method not implemented.');
+    this._router.navigateByUrl("orderRelation");
+  }
+
+  redirectAlignmentCost() {
+    this._router.navigateByUrl("alignmentCost");
+  }
+
+  redirectCustomNoise() {
+    this._router.navigateByUrl("customNoise");
+  }
+
+  redirectTracesFrequency() {
+    this._router.navigateByUrl("traceFrequency");
   }
 }
