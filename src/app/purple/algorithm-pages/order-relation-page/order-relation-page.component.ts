@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSliderModule } from '@angular/material/slider';
@@ -13,7 +13,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   standalone: true,
   imports: [MatIconModule, MatCardModule, MatSliderModule, MatButtonModule, CommonModule, FormsModule, MatProgressBarModule],
   templateUrl: './order-relation-page.component.html',
-  styleUrl: './order-relation-page.component.scss'
+  styleUrl: './order-relation-page.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class OrderRelationPageComponent {
 

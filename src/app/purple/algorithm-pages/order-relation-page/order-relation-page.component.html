@@ -6,20 +6,17 @@
   <div
     class="uploaderContainer"
     fxLayout="column"
-    fxLayoutAlign="center center"
+    fxLayoutAlign="center center"   
   >
     <!-- File Uploader -->
-
     <mat-card class="uploaderCard">
       <mat-card-content class="uploadButtonContainer">
-        <button
-          mat-flat-button
-          color="primary"
-          (click)="fileInput.click()"
-          class="buttonUploader"
-        >
-          Choose File:
-        </button>
+        <a class="fancy" (click)="fileInput.click()">
+          <span class="top-key"></span>
+          <span class="text">Upload File</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </a>
         <input
           hidden
           (change)="onFileSelected($event)"
@@ -27,9 +24,9 @@
           accept=".bpmn,.pnml,.xml"
           type="file"
         />
-        <span *ngIf="singleFile !== null" class="file-name">{{
-          singleFile.name
-        }}</span>
+        <span *ngIf="singleFile !== null" class="fileName">
+          {{ singleFile.name | slice : 0 : 30 }}
+        </span>
       </mat-card-content>
     </mat-card>
 
@@ -47,6 +44,7 @@
           [displayWith]="formatLabel"
           class="slider"
         >
+          
           <input matSliderThumb />
         </mat-slider>
       </mat-card-content>
@@ -55,5 +53,25 @@
   <div class="titleContainer">
     <mat-icon>task</mat-icon>
     <h1>Actions</h1>
+  </div>
+  <div
+    class="uploaderContainer"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <mat-card class="uploaderCard">
+      <mat-card-content class="uploadButtonContainer">
+        <button class="button">
+          <span class="button-content">Generate Log</span>
+        </button>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="uploaderCard">
+      <mat-card-content class="uploadButtonContainer">
+        <button class="button">
+          <span class="button-content">Download Event Log</span>
+        </button>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
