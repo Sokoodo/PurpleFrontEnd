@@ -1,5 +1,5 @@
-<div class="tracesFrequencyContainer">
-  <h1 class="title">TRACES FREQUENCY</h1>
+<div class="alignmentCostContainer">
+  <h1 class="title">FIXED ALIGNMENT COST</h1>
   <div class="titleContainer">
     <mat-icon>input</mat-icon>
     <h1>Inputs</h1>
@@ -10,7 +10,7 @@
     fxLayoutAlign="center center"
   >
     <!-- File Uploader -->
-    <mat-card class="uploaderCard">
+    <mat-card class="sliderCard slCard1">
       <mat-card-content class="uploadButtonContainer">
         <a class="fancy" (click)="fileInput.click()">
           <span class="top-key"></span>
@@ -30,9 +30,15 @@
         </span>
       </mat-card-content>
     </mat-card>
+    <mat-card class="sliderCard slCard2">
+      <mat-card-content>
+        <h3><b>Alignment Cost:</b></h3>
+        <input class="input" name="text" placeholder="0" type="search" />
+      </mat-card-content>
+    </mat-card>
 
     <!-- Slider -->
-    <mat-card class="sliderCard slCard1">
+    <mat-card class="sliderCard slCard3">
       <mat-card-content>
         <h3><b>Percentage of Precision:</b></h3>
         <mat-slider
@@ -49,10 +55,10 @@
         </mat-slider>
       </mat-card-content>
     </mat-card>
-    <mat-card class="sliderCard slCard2">
+    <mat-card class="sliderCard slCard4">
       <mat-card-content>
-        <h3><b>Min Traces Number:</b></h3>
-        <input class="input" name="text" placeholder="min" type="search" />
+        <h3><b>Traces Number:</b></h3>
+        <input class="input" name="text" placeholder="0" type="search" />
       </mat-card-content>
     </mat-card>
   </div>

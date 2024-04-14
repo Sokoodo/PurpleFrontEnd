@@ -1,0 +1,90 @@
+<div class="alignmentCostContainer">
+    <h1 class="title">CUSTOM NOISE</h1>
+    <div class="titleContainer">
+      <mat-icon>input</mat-icon>
+      <h1>Inputs</h1>
+    </div>
+    <div
+      class="uploaderContainer container1"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <!-- File Uploader -->
+      <mat-card class="sliderCard slCard1">
+        <mat-card-content class="uploadButtonContainer">
+          <a class="fancy" (click)="fileInput.click()">
+            <span class="top-key"></span>
+            <span class="text">Upload File</span>
+            <span class="bottom-key-1"></span>
+            <span class="bottom-key-2"></span>
+          </a>
+          <input
+            hidden
+            (change)="onFileSelected($event)"
+            #fileInput
+            accept=".bpmn,.pnml,.xml"
+            type="file"
+          />
+          <span *ngIf="singleFile !== null" class="fileName">
+            {{ singleFile.name | slice : 0 : 30 }}
+          </span>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="sliderCard slCard2">
+        <mat-card-content>
+          <h3><b>Alignment Cost:</b></h3>
+          <input class="input" name="text" placeholder="0" type="search" />
+        </mat-card-content>
+      </mat-card>
+  
+      <!-- Slider -->
+      <mat-card class="sliderCard slCard3">
+        <mat-card-content>
+          <h3><b>Percentage of Precision:</b></h3>
+          <mat-slider
+            min="0"
+            max="100"
+            showTickMarks
+            discrete
+            [color]="'primary'"
+            [(ngModel)]="sliderValue"
+            [displayWith]="formatLabel"
+            class="slider"
+          >
+            <input matSliderThumb />
+          </mat-slider>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="sliderCard slCard4">
+        <mat-card-content>
+          <h3><b>Traces Number:</b></h3>
+          <input class="input" name="text" placeholder="0" type="search" />
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="titleContainer">
+      <mat-icon>task</mat-icon>
+      <h1>Actions</h1>
+    </div>
+    <div
+      class="uploaderContainer"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <mat-card class="uploaderCard">
+        <mat-card-content class="uploadButtonContainer">
+          <button class="button">
+            <span class="button-content">Generate Log</span>
+          </button>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="uploaderCard">
+        <mat-card-content class="uploadButtonContainer">
+          <button class="button">
+            <span class="button-content">Download Event Log</span>
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

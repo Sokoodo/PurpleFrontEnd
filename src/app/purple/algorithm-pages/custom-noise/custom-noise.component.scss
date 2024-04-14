@@ -1,6 +1,6 @@
 @import "../../../../global-styles/global-style-variables.scss";
 
-.orderRelationContainer {
+.alignmentCostContainer {
   height: calc(100% - 3.7rem - var($toolbarHeight));
   display: flex;
   flex-direction: column;
@@ -13,26 +13,30 @@
     justify-content: center;
     color: #884279;
   }
-
+  .container1 {
+    display: grid !important;
+    justify-content: unset !important;
+    row-gap: 0.8rem;
+  }
   .uploaderContainer {
     padding: 0.7rem 0 3rem 0;
     width: 70vh;
     display: flex;
     justify-content: center;
   }
-
   .uploadButtonContainer {
     display: flex !important;
     flex-direction: column !important;
   }
 
   .uploaderCard {
-    height: 8rem;
+    height: 6rem;
+    width: 100% !important; /* Adjust width as needed */
+    grid-column: 1 / span 2;
+    grid-row: 1;
   }
-
   .uploaderCard,
   .sliderCard {
-    width: 47%; /* Adjust width as needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +46,28 @@
 
   // --------------------- SLIDER ------------------------
   .sliderCard {
-    height: 8rem;
+    height: 6rem;
+    width: 100%; /* Adjust width as needed */
+  }
+
+  .slCard1 {
+    grid-column: 1 / span 1;
+    grid-row: 1;
+  }
+
+  .slCard2 {
+    grid-column: 2 / span 1;
+    grid-row: 1;
+  }
+
+  .slCard3 {
+    grid-column: 1 / span 1;
+    grid-row: 2;
+  }
+
+  .slCard4 {
+    grid-column: 2 / span 1;
+    grid-row: 2;
   }
 
   .slider {
@@ -162,10 +187,10 @@
 
   // ----------------------- ACTIONS ----------------------------
   .button {
-    position: relative;
-    overflow: hidden;
     width: 12rem;
     height: 3.4rem !important;
+    position: relative;
+    overflow: hidden;
     padding: 0 2rem;
     border-radius: 1rem;
     background: #8a2a75;
@@ -196,5 +221,27 @@
     border-radius: inherit;
     background: linear-gradient(82.3deg, #5a254e 10.8%, #532448 94.3%);
     transition: all 0.475s;
+  }
+  // INPUT
+  .input {
+    max-width: 190px;
+    background-color: #f5f5f500;
+    color: #242424;
+    padding: 0.15rem 0.5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+  }
+
+  input:focus {
+    border-bottom: 2px solid #884279;
+    border-radius: 4px 4px 2px 2px;
+  }
+
+  input:hover {
+    outline: 1px solid lightgrey;
   }
 }

@@ -4,19 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-traces-frequency-page',
+  selector: 'app-alignment-cost',
   standalone: true,
-  imports: [MatIconModule, MatCardModule, MatSliderModule, MatButtonModule, CommonModule, FormsModule, MatFormFieldModule, MatInputModule],
-  templateUrl: './traces-frequency-page.component.html',
-  styleUrl: './traces-frequency-page.component.scss',
+  imports: [MatIconModule, MatCardModule, MatSliderModule, MatButtonModule, CommonModule, FormsModule, MatProgressBarModule],
+  templateUrl: './alignment-cost.component.html',
+  styleUrl: './alignment-cost.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class TracesFrequencyPageComponent implements OnInit {
+export class AlignmentCostComponent implements OnInit {
   sliderValue: number;
   singleFile: File | null;
   private _cd = inject(ChangeDetectorRef);
@@ -25,7 +24,7 @@ export class TracesFrequencyPageComponent implements OnInit {
     this.sliderValue = 0;
     this.singleFile = null
   }
-  
+
   ngOnInit(): void {
     setTimeout(() => this._cd.detectChanges(), 1);
   }

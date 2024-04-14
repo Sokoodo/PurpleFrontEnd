@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation, inject } from '@angular/core';
 import { SideNavComponent } from "../side-nav/side-nav.component";
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from "../toolbar/toolbar.component";
@@ -11,7 +11,8 @@ import { ToolbarComponent } from "../toolbar/toolbar.component";
   encapsulation: ViewEncapsulation.None,
   imports: [SideNavComponent, CommonModule, ToolbarComponent]
 })
-export class PurpleHomePageComponent {
+export class PurpleHomePageComponent implements OnInit {
+  private _cd = inject(ChangeDetectorRef);
 
   // const formData: FormData = new FormData();
   // formData.append('file', file, 'filtered.csv');
@@ -23,4 +24,8 @@ export class PurpleHomePageComponent {
   //   return this.httpClient.post('http://127.0.0.1:8080/api/v1/graph', formData);
 
   // }
+  
+  ngOnInit(): void {
+    setTimeout(() => this._cd.detectChanges(), 1);
+  }
 }

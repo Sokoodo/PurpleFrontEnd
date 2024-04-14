@@ -212,38 +212,27 @@
     background: linear-gradient(82.3deg, #5a254e 10.8%, #532448 94.3%);
     transition: all 0.475s;
   }
-}
 
-:root {
-  --mdc-switch-selected-focus-state-layer-color: #884279 !important;
-  --mdc-switch-selected-handle-color: #884279 !important;
-  --mdc-switch-selected-hover-state-layer-color: #884279 !important;
-  --mdc-switch-selected-pressed-state-layer-color: #884279 !important;
-  --mdc-slider-handle-color: #884279 !important;
-  --mdc-slider-focus-handle-color: #884279 !important;
-  --mdc-slider-hover-handle-color: #884279 !important;
-  --mdc-slider-active-track-color: #884279 !important;
-  --mdc-slider-inactive-track-color: #884279 !important;
-  --mdc-switch-selected-focus-handle-color: #884279 !important;
-  --mdc-switch-selected-hover-handle-color: #884279 !important;
-  --mdc-switch-selected-pressed-handle-color: #884279 !important;
-  --mdc-switch-selected-focus-track-color: #884279 !important;
-  --mdc-switch-selected-hover-track-color: #884279 !important;
-  --mdc-switch-selected-pressed-track-color: #884279 !important;
-  --mdc-switch-selected-track-color: #884279 !important;
-  --mdc-slider-with-tick-marks-inactive-container-color: #884279 !important;
-  --mdc-slider-with-tick-marks-active-container-color: white;
-  --mdc-slider-disabled-active-track-color: #000;
-  --mdc-slider-disabled-handle-color: #000;
-  --mdc-slider-disabled-inactive-track-color: #000;
-  --mdc-slider-label-container-color: #000;
-  --mdc-slider-label-label-text-color: #fff;
-  --mdc-slider-with-overlap-handle-outline-color: #fff;
-  --mdc-slider-with-tick-marks-disabled-container-color: #000;
-  --mdc-slider-handle-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mat-slider-ripple-color: #884279 !important;
-  --mat-slider-hover-state-layer-color: rgba(103, 58, 183, 0.05);
-  --mat-slider-focus-state-layer-color: rgba(103, 58, 183, 0.2);
-  --mat-slider-value-indicator-opacity: 0.6;
+  // INPUT
+  .input {
+    max-width: 190px;
+    background-color: #f5f5f500;
+    color: #242424;
+    padding: 0.15rem 0.5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+  }
+
+  input:focus {
+    border-bottom: 2px solid #884279;
+    border-radius: 4px 4px 2px 2px;
+  }
+
+  input:hover {
+    outline: 1px solid lightgrey;
+  }
 }
