@@ -5,6 +5,13 @@ import { Router } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 
+export enum ModuleNames {
+  TRACE_FREQUENCY = "trace-frequency",
+  CUSTOM_NOISE = "custom-noise",
+  ALIGNMENT_COST = "alignment-cost",
+  ORDER_RELATION = "order-relation",
+  HOME = "home"
+}
 @Component({
   selector: 'app-side-nav',
   standalone: true,
@@ -23,22 +30,22 @@ export class SideNavComponent {
   }
 
   redirectHome() {
-    this._router.navigateByUrl("home");
+    this._router.navigateByUrl(ModuleNames.HOME);
   }
 
   redirectOrderRelations() {
-    this._router.navigateByUrl("orderRelation");
+    this._router.navigateByUrl(ModuleNames.ORDER_RELATION);
   }
 
   redirectAlignmentCost() {
-    this._router.navigateByUrl("alignmentCost");
+    this._router.navigateByUrl(ModuleNames.ALIGNMENT_COST);
   }
 
   redirectCustomNoise() {
-    this._router.navigateByUrl("customNoise");
+    this._router.navigateByUrl(ModuleNames.CUSTOM_NOISE);
   }
 
   redirectTracesFrequency() {
-    this._router.navigateByUrl("traceFrequency");
+    this._router.navigateByUrl(ModuleNames.TRACE_FREQUENCY);
   }
 }

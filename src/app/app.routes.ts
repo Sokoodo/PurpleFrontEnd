@@ -7,10 +7,10 @@ import { CustomNoiseComponent } from './purple/algorithm-pages/custom-noise/cust
 
 export const routes: Routes = [
     { path: 'home', component: PurpleHomePageComponent, title: "PURPLE- 2.0" },
-    { path: 'orderRelation', component: OrderRelationPageComponent, title: "PURPLE- Order Relation" },
-    { path: 'traceFrequency', component: TracesFrequencyPageComponent, title: "PURPLE- Trace Frequency" },
-    { path: 'alignmentCost', component: AlignmentCostComponent, title: "PURPLE- Alignment Cost" },
-    { path: 'customNoise', component: CustomNoiseComponent, title: "PURPLE- Custom Noise" },
+    { path: 'order-relation', component: OrderRelationPageComponent, title: "PURPLE- Order Relation" },
+    { path: 'trace-frequency', component: TracesFrequencyPageComponent, title: "PURPLE- Trace Frequency" },
+    { path: 'alignment-cost', component: AlignmentCostComponent, title: "PURPLE- Alignment Cost" },
+    { path: 'custom-noise', component: CustomNoiseComponent, title: "PURPLE- Custom Noise" },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PurpleHomePageComponent }
 ];

@@ -1,5 +1,4 @@
 <div class="orderRelationContainer">
-
   <h1 class="title">ORDER RELATION</h1>
 
   <div class="titleContainer">
@@ -9,7 +8,7 @@
   <div
     class="uploaderContainer"
     fxLayout="column"
-    fxLayoutAlign="center center"   
+    fxLayoutAlign="center center"
   >
     <!-- File Uploader -->
     <mat-card class="uploaderCard">
@@ -36,19 +35,23 @@
     <!-- Slider -->
     <mat-card class="sliderCard">
       <mat-card-content>
-        <h3><b>Percentage of completeness:</b></h3>
+        <h3>
+          <b style="font-size: 0.95rem;">Percentage of completeness: {{ slider.value }}%</b>
+        </h3>
         <mat-slider
           min="0"
           max="100"
           showTickMarks
           discrete
           [color]="'primary'"
-          [(ngModel)]="sliderValue"
           [displayWith]="formatLabel"
           class="slider"
         >
-          
-          <input matSliderThumb />
+          <input
+            #slider
+            matSliderThumb
+            [(ngModel)]="sliderValue"
+          />
         </mat-slider>
       </mat-card-content>
     </mat-card>
@@ -64,14 +67,14 @@
   >
     <mat-card class="uploaderCard">
       <mat-card-content class="uploadButtonContainer">
-        <button class="button">
+        <button class="button" (click)="generateLog()">
           <span class="button-content">Generate Log</span>
         </button>
       </mat-card-content>
     </mat-card>
     <mat-card class="uploaderCard">
       <mat-card-content class="uploadButtonContainer">
-        <button class="button">
+        <button class="button" (click)="downloadLog()">
           <span class="button-content">Download Event Log</span>
         </button>
       </mat-card-content>

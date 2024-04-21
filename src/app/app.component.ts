@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SideNavComponent } from "./purple/side-nav/side-nav.component";
-import { ToolbarComponent } from "./purple/toolbar/toolbar.component";
 import { DefaultPageComponent } from './purple/modules/default-page/default-page.component';
 
 @Component({
@@ -9,7 +7,7 @@ import { DefaultPageComponent } from './purple/modules/default-page/default-page
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, SideNavComponent, ToolbarComponent, DefaultPageComponent]
+    imports: [RouterOutlet, DefaultPageComponent]
 })
 export class AppComponent {
   title = 'PurpleFrontEnd';
