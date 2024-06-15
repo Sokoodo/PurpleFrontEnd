@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.mat-dialog-actions {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.left-actions {
+  display: flex !important;
+}
+
+.right-actions {
+  display: flex !important;
+}

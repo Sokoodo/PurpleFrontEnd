@@ -36,7 +36,9 @@
     <mat-card class="sliderCard">
       <mat-card-content>
         <h3>
-          <b style="font-size: 0.95rem;">Percentage of completeness: {{ slider.value }}%</b>
+          <b style="font-size: 0.95rem"
+            >Percentage of completeness: {{ slider.value }}%</b
+          >
         </h3>
         <mat-slider
           min="0"
@@ -47,11 +49,7 @@
           [displayWith]="formatLabel"
           class="slider"
         >
-          <input
-            #slider
-            matSliderThumb
-            [(ngModel)]="sliderValue"
-          />
+          <input #slider matSliderThumb [(ngModel)]="sliderValue" />
         </mat-slider>
       </mat-card-content>
     </mat-card>
@@ -80,4 +78,5 @@
       </mat-card-content>
     </mat-card>
   </div>
+  
 </div>
