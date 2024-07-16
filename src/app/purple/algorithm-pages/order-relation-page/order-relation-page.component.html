@@ -12,7 +12,7 @@
   >
     <!-- File Uploader -->
     <mat-card class="uploaderCard">
-      <div (fileDropped)="onFileDrop($event)" appDnd accept=".bpmn,.pnml,.xml">
+      <div (fileDropped)="onFileDrop($event)" appDnd>
         <mat-card-content class="uploadButtonContainer">
           <a class="fancy" (click)="fileInput.click()">
             <span class="top-key"></span>

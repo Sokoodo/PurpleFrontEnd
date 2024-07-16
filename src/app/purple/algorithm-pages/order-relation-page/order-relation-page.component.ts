@@ -59,7 +59,11 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
 
   //da mettere in altre pagine
   onFileDrop(event: any) {
-    this.singleFile = event[0] != undefined ? event[0] : null;
+    this.singleFile = event[0] != undefined && this.isBpmnFile(event[0].name) ? event[0] : null;
+  }
+
+  isBpmnFile(filename: string): boolean {
+    return filename.endsWith('.bpmn') || filename.endsWith('.pnml') || filename.endsWith('.xml');
   }
 
   formatLabel(value: number): string {
