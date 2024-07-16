@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SideNavComponent } from "../../side-nav/side-nav.component";
-import { ToolbarComponent } from "../../toolbar/toolbar.component";
+import { SideNavComponent } from "../../custom-components/side-nav/side-nav.component";
+import { ToolbarComponent } from "../../custom-components/toolbar/toolbar.component";
 import { RouterOutlet } from '@angular/router';
 
 @Component({

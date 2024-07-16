@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation, inject } from '@angular/core';
-import { SideNavComponent } from "../side-nav/side-nav.component";
+import { SideNavComponent } from "../custom-components/side-nav/side-nav.component";
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent } from "../toolbar/toolbar.component";
+import { ToolbarComponent } from "../custom-components/toolbar/toolbar.component";
 
 @Component({
   selector: 'purple-home-page',

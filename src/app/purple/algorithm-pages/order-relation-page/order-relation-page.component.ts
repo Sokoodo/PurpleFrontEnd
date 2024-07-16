@@ -5,6 +5,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DndDirective } from '../../directives/dnd.directive';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { SnackbarServiceService } from "../../services/snackbar-service.service"
@@ -19,14 +20,13 @@ import { EventLogDialogComponent } from '../../dialogs/app-event-log-dialog/app-
 @Component({
   selector: 'app-order-relation-page',
   standalone: true,
-  imports: [MatTableModule, MatIconModule, MatCardModule, MatSliderModule,
+  imports: [MatTableModule, MatIconModule, MatCardModule, MatSliderModule, DndDirective,
     MatButtonModule, CommonModule, FormsModule, MatProgressBarModule, MatGridListModule, HttpClientModule],
   templateUrl: './order-relation-page.component.html',
   styleUrl: './order-relation-page.component.scss',
   encapsulation: ViewEncapsulation.None
 })
 export class OrderRelationPageComponent implements OnInit, OnDestroy {
-
   private _cd = inject(ChangeDetectorRef);
   private _snackbarServiceService = inject(SnackbarServiceService);
   private _apiService = inject(ApiService);
@@ -54,7 +54,12 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
   }
 
   onFileSelected(event: any): void {
-    this.singleFile = event.target.files[0] ?? null;
+    this.singleFile = event.target.files[0] != undefined ? event.target.files[0] : null;
+  }
+
+  //da mettere in altre pagine
+  onFileDrop(event: any) {
+    this.singleFile = event[0] != undefined ? event[0] : null;
   }
 
   formatLabel(value: number): string {
@@ -89,6 +94,7 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
       this._subs.push(this._apiService.orderRelationGenerateEventLog(this.singleFile, this.sliderValue)
         .subscribe(res => {
           if (res != null) {
+            console.log(res)
             const flattenedData = this.flattenEventLog(res);
             this.dataSource = new MatTableDataSource(flattenedData);
             console.log(flattenedData);
@@ -112,7 +118,6 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
   downloadLog() {
     if (this.singleFile != null) {
     } else {
-
       this._snackbarServiceService.openSnackBar("You first have to generate an eventLog", "close", { duration: 2500 });
     }
   }

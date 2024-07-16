@@ -12,24 +12,26 @@
   >
     <!-- File Uploader -->
     <mat-card class="uploaderCard">
-      <mat-card-content class="uploadButtonContainer">
-        <a class="fancy" (click)="fileInput.click()">
-          <span class="top-key"></span>
-          <span class="text">Upload File</span>
-          <span class="bottom-key-1"></span>
-          <span class="bottom-key-2"></span>
-        </a>
-        <input
-          hidden
-          (change)="onFileSelected($event)"
-          #fileInput
-          accept=".bpmn,.pnml,.xml"
-          type="file"
-        />
-        <span *ngIf="singleFile !== null" class="fileName">
-          {{ singleFile.name | slice : 0 : 30 }}
-        </span>
-      </mat-card-content>
+      <div (fileDropped)="onFileDrop($event)" appDnd accept=".bpmn,.pnml,.xml">
+        <mat-card-content class="uploadButtonContainer">
+          <a class="fancy" (click)="fileInput.click()">
+            <span class="top-key"></span>
+            <span class="text">Upload File</span>
+            <span class="bottom-key-1"></span>
+            <span class="bottom-key-2"></span>
+          </a>
+          <input
+            hidden
+            (change)="onFileSelected($event)"
+            #fileInput
+            accept=".bpmn,.pnml,.xml"
+            type="file"
+          />
+          <span *ngIf="singleFile !== null" class="fileName">
+            {{ singleFile.name | slice : 0 : 30 }}
+          </span>
+        </mat-card-content>
+      </div>
     </mat-card>
 
     <!-- Slider -->
@@ -78,5 +80,4 @@
       </mat-card-content>
     </mat-card>
   </div>
-  
 </div>
