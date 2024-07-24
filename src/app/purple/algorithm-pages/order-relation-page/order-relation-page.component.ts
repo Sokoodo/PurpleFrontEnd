@@ -85,7 +85,7 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
             caseId: caseId,
             eventName: event.attributes['concept:name'],
             timestamp: event.attributes['time:timestamp'],
-            attributes: JSON.stringify(event.attributes)
+            attributes: JSON.stringify(event.attributes) 
           });
         }
       }
