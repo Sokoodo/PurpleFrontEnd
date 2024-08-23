@@ -25,7 +25,7 @@ export interface EventLogDialogData {
     encapsulation: ViewEncapsulation.None
 })
 export class EventLogDialogComponent implements OnInit {
-    displayedColumns: string[] = ['caseId', 'eventName', 'timestamp', 'attributes'];
+    displayedColumns: string[] = ['caseId', 'eventName', 'timestamp'];
     dataSource: CdkTableDataSourceInput<any>;
 
     private data = inject(MAT_DIALOG_DATA);
@@ -68,5 +68,10 @@ export class EventLogDialogComponent implements OnInit {
 
     closeDialog(): void {
         this.dialogRef.close();
+    }
+
+    isEvenCaseId(caseId: any): boolean {
+        console.log(caseId)
+        return caseId % 2 === 0;
     }
 }

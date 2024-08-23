@@ -11,6 +11,7 @@ export class ApiService {
 
     private _baseUrl = "http://127.0.0.1:5000/api";
     private _orderRelationUrl = "/order-relation/event-log";
+    private _customNoiseUrl = "/custom-noise/event-log";
 
     constructor() { }
 
@@ -19,6 +20,16 @@ export class ApiService {
             const formData = new FormData();
             formData.set('singleFile', singleFile, singleFile.name);
             return this._http.post<any>(`${this._baseUrl}${this._orderRelationUrl}?sliderValue=${sliderValue}`, formData);
+        }
+        return of(null)
+    }
+
+
+    customNoiseGenerateEventLog(singleFile: File | null, precision: number, alignmentCost: number, tracesNr: number) {
+        if (singleFile != null) {
+            const formData = new FormData();
+            formData.set('singleFile', singleFile, singleFile.name);
+            return this._http.post<any>(`${this._baseUrl}${this._customNoiseUrl}?precision=${precision}&cost=${alignmentCost}&tracesNumber=${tracesNr}`, formData);
         }
         return of(null)
     }

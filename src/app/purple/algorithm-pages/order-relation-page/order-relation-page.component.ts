@@ -14,8 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CdkTableDataSourceInput } from '@angular/cdk/table';
 import { Subscription } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
-import { EventLogDialogComponent } from '../../dialogs/app-event-log-dialog/app-event-log-dialog.component';
+import { AlgorithmUtilsService } from '../../services/algorithm-utils.service';
 
 @Component({
   selector: 'app-order-relation-page',
@@ -30,12 +29,11 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
   private _cd = inject(ChangeDetectorRef);
   private _snackbarServiceService = inject(SnackbarServiceService);
   private _apiService = inject(ApiService);
-  dialog = inject(MatDialog);
-
   private _subs: Subscription[];
+
+  aUtilsService = inject(AlgorithmUtilsService);
   sliderValue: number;
   singleFile: File | null;
-  displayedColumns: string[] = ['caseId', 'eventName', 'timestamp', 'attributes'];
   dataSource: CdkTableDataSourceInput<any>;
 
   constructor() {
@@ -57,40 +55,8 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
     this.singleFile = event.target.files[0] != undefined ? event.target.files[0] : null;
   }
 
-  //da mettere in altre pagine
   onFileDrop(event: any) {
-    this.singleFile = event[0] != undefined && this.isBpmnFile(event[0].name) ? event[0] : null;
-  }
-
-  isBpmnFile(filename: string): boolean {
-    return filename.endsWith('.bpmn') || filename.endsWith('.pnml') || filename.endsWith('.xml');
-  }
-
-  formatLabel(value: number): string {
-    if (value >= 1) {
-      return Math.round(value / 1) + '%';
-    }
-    return `${value}`;
-  }
-
-  flattenEventLog(eventLog: any): any[] {
-    let flattened = [];
-    let caseIdCounter = 1; // Counter for generating case IDs if they are not provided
-
-    if (Array.isArray(eventLog)) {
-      for (let trace of eventLog) {
-        let caseId = trace.attributes['concept:name'] || `case_${caseIdCounter++}`;
-        for (let event of trace.events) {
-          flattened.push({
-            caseId: caseId,
-            eventName: event.attributes['concept:name'],
-            timestamp: event.attributes['time:timestamp'],
-            attributes: JSON.stringify(event.attributes) 
-          });
-        }
-      }
-    }
-    return flattened;
+    this.singleFile = event[0] != undefined && this.aUtilsService.isBpmnFile(event[0].name) ? event[0] : null;
   }
 
   generateLog() {
@@ -99,10 +65,10 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
         .subscribe(res => {
           if (res != null) {
             console.log(res)
-            const flattenedData = this.flattenEventLog(res);
+            const flattenedData = this.aUtilsService.flattenEventLog(res);
             this.dataSource = new MatTableDataSource(flattenedData);
             console.log(flattenedData);
-            this.openDialog(flattenedData);
+            this.aUtilsService.openDialog(flattenedData);
           } else {
             console.error("Errore nel generatedEventLog");
           }
@@ -110,13 +76,6 @@ export class OrderRelationPageComponent implements OnInit, OnDestroy {
     } else {
       this._snackbarServiceService.openSnackBar("You first have to load a File", "close", { duration: 2500 });
     }
-  }
-
-  openDialog(data: any): void {
-    this.dialog.open(EventLogDialogComponent, {
-      width: '80%',
-      data: data
-    });
   }
 
   downloadLog() {

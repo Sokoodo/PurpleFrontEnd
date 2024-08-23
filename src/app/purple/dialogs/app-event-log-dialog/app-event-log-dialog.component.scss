@@ -14,3 +14,13 @@
 .right-actions {
   display: flex !important;
 }
+
+.table-container {
+  height: 80vh;
+  width: 80vw;
+  overflow-y: auto;
+}
+
+.even-case {
+  background: #a0689485 !important;
+}

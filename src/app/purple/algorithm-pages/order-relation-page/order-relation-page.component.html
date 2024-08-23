@@ -48,7 +48,7 @@
           showTickMarks
           discrete
           [color]="'primary'"
-          [displayWith]="formatLabel"
+          [displayWith]="aUtilsService.formatLabel"
           class="slider"
         >
           <input #slider matSliderThumb [(ngModel)]="sliderValue" />
