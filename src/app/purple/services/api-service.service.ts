@@ -25,11 +25,11 @@ export class ApiService {
     }
 
 
-    customNoiseGenerateEventLog(singleFile: File | null, precision: number, alignmentCost: number, tracesNr: number) {
+    customNoiseGenerateEventLog(singleFile: File | null, precision: number, missingHead: number, missingTail: number, missingEpisode: number, orderPerturbation: number, alienActivities: number, tracesNr: number) {
         if (singleFile != null) {
             const formData = new FormData();
             formData.set('singleFile', singleFile, singleFile.name);
-            return this._http.post<any>(`${this._baseUrl}${this._customNoiseUrl}?precision=${precision}&cost=${alignmentCost}&tracesNumber=${tracesNr}`, formData);
+            return this._http.post<any>(`${this._baseUrl}${this._customNoiseUrl}?precision=${precision}&tracesNumber=${tracesNr}&missingHead=${missingHead}&missingTail=${missingTail}&missingEpisode=${missingEpisode}&orderPerturbation=${orderPerturbation}&alienActivities=${alienActivities}`, formData);
         }
         return of(null)
     }

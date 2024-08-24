@@ -4,11 +4,11 @@
   height: calc(100% - 3.7rem - var($toolbarHeight));
   display: flex;
   flex-direction: column;
-  padding-top: 5rem;
+  padding-top: 2.5rem;
   align-items: center;
 
   .titleContainer {
-    width: 70vh;
+    width: 66vw;
     display: flex;
     justify-content: center;
     color: #884279;
@@ -16,11 +16,11 @@
   .container1 {
     display: grid !important;
     justify-content: unset !important;
-    row-gap: 0.8rem;
+    row-gap: 0.5rem;
   }
   .uploaderContainer {
-    padding: 0.7rem 0 3rem 0;
-    width: 70vh;
+    padding: 0.3rem 0 2.1rem 0;
+    width: 66vw;
     display: flex;
     justify-content: center;
   }
@@ -61,12 +61,22 @@
   }
 
   .slCard3 {
-    grid-column: 1 / span 1;
-    grid-row: 2;
+    grid-column: 3 / span 1;
+    grid-row: 1;
   }
 
   .slCard4 {
-    grid-column: 2 / span 1;
+    grid-column: 1 / span 1.5;
+    grid-row: 2;
+  }
+
+  .slCard5 {
+    grid-column: 2 / span 1.5;
+    grid-row: 2;
+  }
+
+  .slCard100{
+    grid-column: 1 / span 2;
     grid-row: 2;
   }
 
@@ -187,7 +197,7 @@
 
   // ----------------------- ACTIONS ----------------------------
   .button {
-    width: 12rem;
+    width: 15rem;
     height: 3.4rem !important;
     position: relative;
     overflow: hidden;

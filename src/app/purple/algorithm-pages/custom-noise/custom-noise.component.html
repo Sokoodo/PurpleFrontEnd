@@ -32,25 +32,25 @@
         </mat-card-content>
       </div>
     </mat-card>
+
     <mat-card class="sliderCard slCard2">
       <mat-card-content>
-        <h3><b>Alignment Cost:</b></h3>
+        <h3><b>Traces Number:</b></h3>
         <input
           class="input"
           name="text"
           placeholder="0"
           type="search"
-          [(ngModel)]="alignmentCost"
+          [(ngModel)]="tracesNr"
         />
       </mat-card-content>
     </mat-card>
-
     <!-- Slider -->
     <mat-card class="sliderCard slCard3">
       <mat-card-content>
         <h3>
           <b style="font-size: 0.95rem"
-            >Percentage of completeness: {{ slider.value }}%</b
+            >Percentage of precision: {{ slider.value }}%</b
           >
         </h3>
         <mat-slider
@@ -66,15 +66,72 @@
         </mat-slider>
       </mat-card-content>
     </mat-card>
-    <mat-card class="sliderCard slCard4">
+  </div>
+  <div class="titleContainer">
+    <h1>Noise Percentages:</h1>
+  </div>
+  <div
+    class="uploaderContainer container1"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <mat-card class="sliderCard slCard1">
       <mat-card-content>
-        <h3><b>Traces Number:</b></h3>
+        <h3><b>Missing head (%):</b></h3>
         <input
           class="input"
           name="text"
           placeholder="0"
           type="search"
-          [(ngModel)]="tracesNr"
+          [(ngModel)]="missingHead"
+        />
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="sliderCard slCard2">
+      <mat-card-content>
+        <h3><b>Missing tail (%):</b></h3>
+        <input
+          class="input"
+          name="text"
+          placeholder="0"
+          type="search"
+          [(ngModel)]="missingTail"
+        />
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="sliderCard slCard3">
+      <mat-card-content>
+        <h3><b>Missing episode (%):</b></h3>
+        <input
+          class="input"
+          name="text"
+          placeholder="0"
+          type="search"
+          [(ngModel)]="missingEpisode"
+        />
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="sliderCard slCard4">
+      <mat-card-content>
+        <h3><b>Order perturbation (%):</b></h3>
+        <input
+          class="input"
+          name="text"
+          placeholder="0"
+          type="search"
+          [(ngModel)]="orderPerturbation"
+        />
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="sliderCard slCard5">
+      <mat-card-content>
+        <h3><b>Alien activities (%):</b></h3>
+        <input
+          class="input"
+          name="text"
+          placeholder="0"
+          type="search"
+          [(ngModel)]="alienActivities"
         />
       </mat-card-content>
     </mat-card>

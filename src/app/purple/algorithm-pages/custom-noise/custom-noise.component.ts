@@ -30,15 +30,23 @@ export class CustomNoiseComponent implements OnInit {
 
   aUtilsService = inject(AlgorithmUtilsService);
   precision: number;
-  alignmentCost: number;
+  missingHead: number;
+  missingTail: number;
+  missingEpisode: number;
+  orderPerturbation: number;
+  alienActivities: number;
   tracesNr: number;
   singleFile: File | null;
   dataSource: CdkTableDataSourceInput<any>;
 
   constructor() {
     this.precision = 0;
-    this.alignmentCost = 0;
+    this.missingHead = 0;
     this.tracesNr = 0;
+    this.missingTail = 0;
+    this.missingEpisode = 0;
+    this.orderPerturbation = 0;
+    this.alienActivities = 0;
     this.singleFile = null;
     this._subs = [];
     this.dataSource = [];
@@ -65,7 +73,7 @@ export class CustomNoiseComponent implements OnInit {
 
   generateLog() {
     if (this.singleFile != null) {
-      this._subs.push(this._apiService.customNoiseGenerateEventLog(this.singleFile, this.precision, this.alignmentCost, this.tracesNr)
+      this._subs.push(this._apiService.customNoiseGenerateEventLog(this.singleFile, this.precision, this.missingHead, this.missingTail, this.missingEpisode, this.orderPerturbation, this.alienActivities, this.tracesNr)
         .subscribe(res => {
           if (res != null) {
             console.log(res)
