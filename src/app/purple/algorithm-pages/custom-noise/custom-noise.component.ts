@@ -29,7 +29,6 @@ export class CustomNoiseComponent implements OnInit {
   private _subs: Subscription[];
 
   aUtilsService = inject(AlgorithmUtilsService);
-  precision: number;
   missingHead: number;
   missingTail: number;
   missingEpisode: number;
@@ -40,7 +39,6 @@ export class CustomNoiseComponent implements OnInit {
   dataSource: CdkTableDataSourceInput<any>;
 
   constructor() {
-    this.precision = 0;
     this.missingHead = 0;
     this.tracesNr = 0;
     this.missingTail = 0;
@@ -72,21 +70,26 @@ export class CustomNoiseComponent implements OnInit {
   }
 
   generateLog() {
-    if (this.singleFile != null) {
-      this._subs.push(this._apiService.customNoiseGenerateEventLog(this.singleFile, this.precision, this.missingHead, this.missingTail, this.missingEpisode, this.orderPerturbation, this.alienActivities, this.tracesNr)
-        .subscribe(res => {
-          if (res != null) {
-            console.log(res)
-            const flattenedData = this.aUtilsService.flattenEventLog(res);
-            this.dataSource = new MatTableDataSource(flattenedData);
-            console.log(flattenedData);
-            this.aUtilsService.openDialog(flattenedData);
-          } else {
-            console.error("Errore nel generatedEventLog");
-          }
-        }));
+    const noiseSum = this.missingHead + this.missingTail + this.missingEpisode + this.alienActivities + this.orderPerturbation
+    if (noiseSum <= 100 && noiseSum >= 0) {
+      if (this.singleFile != null) {
+        this._subs.push(this._apiService.customNoiseGenerateEventLog(this.singleFile, this.missingHead, this.missingTail, this.missingEpisode, this.orderPerturbation, this.alienActivities, this.tracesNr)
+          .subscribe(res => {
+            if (res != null) {
+              console.log(res)
+              const flattenedData = this.aUtilsService.flattenEventLog(res);
+              this.dataSource = new MatTableDataSource(flattenedData);
+              console.log(flattenedData);
+              this.aUtilsService.openDialog(flattenedData);
+            } else {
+              console.error("Errore nel generatedEventLog");
+            }
+          }));
+      } else {
+        this._snackbarServiceService.openSnackBar("You first have to load a File", "close", { duration: 2500 });
+      }
     } else {
-      this._snackbarServiceService.openSnackBar("You first have to load a File", "close", { duration: 2500 });
+      this._snackbarServiceService.openSnackBar("The sum of the noises must be a number from 0 to 100!", "close", { duration: 2500 });
     }
   }
 

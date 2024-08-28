@@ -45,27 +45,6 @@
         />
       </mat-card-content>
     </mat-card>
-    <!-- Slider -->
-    <mat-card class="sliderCard slCard3">
-      <mat-card-content>
-        <h3>
-          <b style="font-size: 0.95rem"
-            >Percentage of precision: {{ slider.value }}%</b
-          >
-        </h3>
-        <mat-slider
-          min="0"
-          max="100"
-          showTickMarks
-          discrete
-          [color]="'primary'"
-          [displayWith]="aUtilsService.formatLabel"
-          class="slider"
-        >
-          <input #slider matSliderThumb [(ngModel)]="precision" />
-        </mat-slider>
-      </mat-card-content>
-    </mat-card>
   </div>
   <div class="titleContainer">
     <h1>Noise Percentages:</h1>
@@ -145,19 +124,11 @@
     fxLayout="column"
     fxLayoutAlign="center center"
   >
-    <mat-card class="uploaderCard">
-      <mat-card-content class="uploadButtonContainer">
-        <button class="button" (click)="generateLog()">
-          <span class="button-content">Generate Log</span>
-        </button>
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="uploaderCard">
-      <mat-card-content class="uploadButtonContainer">
-        <button class="button" (click)="downloadLog()">
-          <span class="button-content">Download Event Log</span>
-        </button>
-      </mat-card-content>
-    </mat-card>
+    <button class="button" (click)="generateLog()">
+      <span class="button-content">Generate Log</span>
+    </button>
+    <button class="button" (click)="downloadLog()">
+      <span class="button-content">Download Event Log</span>
+    </button>
   </div>
 </div>

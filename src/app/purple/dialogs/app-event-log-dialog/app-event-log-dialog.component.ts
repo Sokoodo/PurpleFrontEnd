@@ -47,9 +47,9 @@ export class EventLogDialogComponent implements OnInit {
     }
 
     private convertToCsv(): string {
-        let csvContent = 'Case ID,Event Name,Timestamp,Attributes\n';
+        let csvContent = 'Case ID,Event Name,Timestamp\n';
         this.data.forEach((row: any) => {
-            csvContent += `${row.caseId},${row.eventName},${row.timestamp},${JSON.stringify(row.attributes)}\n`;
+            csvContent += `${row.caseId},${row.eventName},${row.timestamp}\n`;
         });
         return csvContent;
     }

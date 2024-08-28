@@ -19,10 +19,11 @@
     row-gap: 0.5rem;
   }
   .uploaderContainer {
-    padding: 0.3rem 0 2.1rem 0;
-    width: 66vw;
+    padding: 0.4rem 0 2.1rem 0;
+    width: 63vw;
     display: flex;
     justify-content: center;
+    justify-content: space-evenly;
   }
   .uploadButtonContainer {
     display: flex !important;
