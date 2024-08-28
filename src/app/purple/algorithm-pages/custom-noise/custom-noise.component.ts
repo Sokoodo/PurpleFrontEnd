@@ -70,7 +70,7 @@ export class CustomNoiseComponent implements OnInit {
   }
 
   generateLog() {
-    const noiseSum = this.missingHead + this.missingTail + this.missingEpisode + this.alienActivities + this.orderPerturbation
+    const noiseSum: number = Number(this.missingHead) + Number(this.missingTail) + Number(this.missingEpisode) + Number(this.alienActivities) + Number(this.orderPerturbation);
     if (noiseSum <= 100 && noiseSum >= 0) {
       if (this.singleFile != null) {
         this._subs.push(this._apiService.customNoiseGenerateEventLog(this.singleFile, this.missingHead, this.missingTail, this.missingEpisode, this.orderPerturbation, this.alienActivities, this.tracesNr)
